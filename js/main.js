@@ -45,7 +45,7 @@ if (area <= 1000)   {
 
 function MostrarResultado ()
       {
-        let conIva = "El valor de la pintura para su pieza es de $ " + (area * 1.19) +" c/iva";
+        let conIva = "El valor de la pintura para su pieza es de $ " + (area * 1.19).toFixed(2) +" c/iva";
         alert (conIva);
         
       }	
