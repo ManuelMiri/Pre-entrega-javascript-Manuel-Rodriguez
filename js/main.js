@@ -1,9 +1,88 @@
+      
+      
+      
+      // BUSCADOR DE AUTOS
+      // Array de objetos para almacenar los autos
+
+let autos = [
+    {
+        marca: 'Ford',
+        modelo: 'Fiesta',
+        precio: 150000,
+        km: 200,
+        color: 'Azul',
+        cuotas: 12,
+        anio: 2019,
+        patente: 'APL123',
+        vendido: false
+    },
+    {
+        marca: 'Toyota',
+        modelo: 'Corolla',
+        precio: 100000,
+        km: 0,
+        color: 'Blanco',
+        cuotas: 14,
+        anio: 2019,
+        patente: 'JJK116',
+        vendido: true
+    },
+    {
+        marca: 'Citroen',
+        modelo: 'Cellize',
+        precio: 150000,
+        km: 200,
+        color: 'Gris',
+        cuotas: 12,
+        anio: 2019,
+        patente: 'LXPJ29',
+        vendido: false
+    },
+    {
+        marca: 'Gonxer',
+        modelo: 'Tomando Como Rey',
+        precio: 100000,
+        km: 0,
+        color: 'Gay',
+        cuotas: 14,
+        anio: 2019,
+        patente: 'ACM1PT',
+        vendido: true
+    }
+];
+
+function buscarAuto(patente) {
+    var idx = autos.findIndex(x => x.patente == patente);
+    return idx != -1 ? autos[idx] : false;
+}
+
+document.getElementById('formulario').addEventListener('submit', function(e) {
+    e.preventDefault(); // evita que la página se recargue al enviar el formulario
+
+    var patente = document.getElementById('patente').value;
+    var auto = buscarAuto(patente);
+
+    if (auto) {
+        var html = `
+          <p>El auto con patente ${patente} es un ${auto.marca} ${auto.modelo} del año ${auto.anio}</p>
+          <p>Precio: ${auto.precio}</p>
+          <p>Kilómetros recorridos: ${auto.km}</p>
+          <p>Color: ${auto.color}</p>
+          <p>Cuotas: ${auto.cuotas}</p>
+          <p>Vendido: ${auto.vendido ? 'Sí' : 'No'}</p>
+        `;
+        document.getElementById('resultado').innerHTML = html;
+    } else {
+        document.getElementById('resultado').innerHTML = `<p>No se encontró ningún auto con la patente ${patente}</p>`;
+    }
+});
+
 /* let entrada = prompt("Ingrese su nombre")
 let salida = entrada +" "+"ingresada";
 alert(salida); */
 
 
-alert("Bienvenido a Quelle, Valores Pintura.")
+/* alert("Bienvenido a Quelle, Valores Pintura.")
 alert("Ingresa el tipo de vehiculo : auto, camioneta o moto.")
 
 let marca = prompt("ingresa tipo de vehiculo")
@@ -41,8 +120,6 @@ if (area <= 1000)   {
     alert("Debe ingresar datos");
 }
 
-
-
 function MostrarResultado ()
       {
         let conIva = "El valor de la pintura para su pieza es de $ " + (area * 1.19).toFixed(2) +" c/iva";
@@ -50,15 +127,13 @@ function MostrarResultado ()
         
       }	
 
-      MostrarResultado ();
+      MostrarResultado (); */
+      // FIN DE CODIGO PARA CALCULAR PINTURA
 
 
 
-
-
-
-
-
-
-
-
+      
+       
+           
+      
+    
