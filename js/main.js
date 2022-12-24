@@ -4,7 +4,7 @@
       // BUSCADOR DE AUTOS
       // Array de objetos para almacenar los autos
 
-let autos = [
+const autos = [
     {
         marca: 'Ford',
         modelo: 'Fiesta',
@@ -52,19 +52,19 @@ let autos = [
 ];
 
 function buscarAuto(patente) {
-    var idx = autos.findIndex(x => x.patente == patente);
+    let idx = autos.findIndex(x => x.patente == patente.toUpperCase());
     return idx != -1 ? autos[idx] : false;
 }
 
 document.getElementById('formulario').addEventListener('submit', function(e) {
     e.preventDefault(); // evita que la página se recargue al enviar el formulario
 
-    var patente = document.getElementById('patente').value;
-    var auto = buscarAuto(patente);
+    let patente = document.getElementById('patente').value;
+    let auto = buscarAuto(patente);
 
     if (auto) {
-        var html = `
-          <p>El auto con patente ${patente} es un ${auto.marca} ${auto.modelo} del año ${auto.anio}</p>
+        let html = 
+        `<p>El auto con patente ${patente} es un ${auto.marca} ${auto.modelo} del año ${auto.anio}</p>
           <p>Precio: ${auto.precio}</p>
           <p>Kilómetros recorridos: ${auto.km}</p>
           <p>Color: ${auto.color}</p>
@@ -76,6 +76,8 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
         document.getElementById('resultado').innerHTML = `<p>No se encontró ningún auto con la patente ${patente}</p>`;
     }
 });
+
+
 
 /* let entrada = prompt("Ingrese su nombre")
 let salida = entrada +" "+"ingresada";
